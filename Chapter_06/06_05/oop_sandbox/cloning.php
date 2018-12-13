@@ -29,4 +29,13 @@ $b->name = 'tea';
 echo $a->name . '<br />';
 echo $b->name . '<br />';
 
+echo '<hr />';
+
+$c = $b;
+$c->name = "orange juice";
+
+echo $a->name . '<br />';
+echo $b->name . '<br />';
+echo $c->name . '<br />';
+
 ?>
