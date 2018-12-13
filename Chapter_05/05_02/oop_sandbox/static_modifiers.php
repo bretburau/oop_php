@@ -27,4 +27,22 @@ echo Student::count() . "<br />";
 Student::add_student();
 echo Student::count() . "<br />";
 
+// Static properties and methods are inherited
+class PartTimeStudent extends Student {
+}
+
+echo PartTimeStudent::$grades[0] . "<br />";
+echo PartTimeStudent::motto() . "<br />";
+
+
+PartTimeStudent::$grades[] = 'Alumni';
+echo implode(', ', Student::$grades) . '<br/>';
+
+Student::add_student();
+Student::add_student();
+Student::add_student();
+PartTimeStudent::add_student();
+
+echo Student::count() . "<br/>";
+echo PartTimeStudent::count() . "<br/>";
 ?>
