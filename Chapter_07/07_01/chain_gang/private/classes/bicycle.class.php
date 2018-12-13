@@ -4,7 +4,13 @@ class Bicycle {
 
     const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'BMX'];
     const GENDERS = ['mens', 'womens', 'unisex'];
-    public $conditions = ['Beat up', 'Decent', 'Good', 'Great', 'Like New'];
+    protected const CONDITION_OPTIONS = [
+        1 => 'Beat up',
+        2 => 'Decent',
+        3 => 'Good',
+        4 => 'Great',
+        5 => 'Like New'
+      ];
     public $brand;
     public $model;
     public $year;
@@ -22,7 +28,11 @@ class Bicycle {
     }
 
     public function condition() {
-        return $this->conditions[$this->condition_id - 1];
+        if($this->condition_id > 0) {
+          return self::CONDITION_OPTIONS[$this->condition_id];
+        } else {
+          return "Unknown";
+        }
     }
 
     public function weight_kg() {
