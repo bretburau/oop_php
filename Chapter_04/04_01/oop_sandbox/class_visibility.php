@@ -7,7 +7,11 @@ class Student {
   public $country = 'None';
 
   protected $registration_id;
-  private $tuition = 500;
+  private $tution = 0.00;
+
+  public function say_hello() {
+    return 'Hello world!';
+  }
 
   public function full_name() {
     return $this->first_name . " " . $this->last_name;
@@ -24,36 +28,31 @@ class Student {
   private function hello_me() {
     return 'Hello me!';
   }
-
-  public function tution_fmt() {
-    return '$' . $this->tution;
-  }
-
 }
 
 class PartTimeStudent extends Student {
-  public function hello_parent() {
+  public function hello_parent () {
     return $this->hello_family();
   }
 }
 
-//$student1 = new Student;
 $student1 = new PartTimeStudent;
 $student1->first_name = 'Lucy';
 $student1->last_name = 'Ricardo';
 
-//echo $student1->registration_id;
-//echo $student1->tuition;
+$student2 = new Student;
+$student2->first_name = 'Ethel';
+$student2->last_name = 'Mertz';
+
 
 echo $student1->full_name() . "<br />";
+echo $student2->full_name() . "<br />";
 
-echo $student1->hello_world() . "<br />";
-//echo $student1->hello_family() . "<br />";
-//echo $student1->hello_me() . "<br />";
-echo $student1->hello_parent() . "<br />";
+echo $student1->say_hello() . "<br />";
+echo $student2->say_hello() . "<br />";
 
-$student1->tution = 1000;
-echo $student1->tution . '<br />';
-echo $student1->tution_fmt() . '<br />'
-
+echo $student1->hello_world();
+// echo $student1->hello_family();
+// echo $student1->hello_me();
+echo $student1->hello_parent();
 ?>
